@@ -74,7 +74,7 @@ export default {
 
   margin-left: 0;
   margin-right: 0;
-   background-image: url("../../public/medalla.png");
+  
   background-position-y: top;
   background-position: top;
   background-repeat: no-repeat;
