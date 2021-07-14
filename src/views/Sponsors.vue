@@ -43,7 +43,7 @@ export default {
         // For mode B
         b: {
           // How much bigger will the hovering image be than others
-          scale: 1.5,
+          scale: 2,
           // duration of transition animation
           duration: 250
         }

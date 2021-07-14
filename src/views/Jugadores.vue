@@ -13,7 +13,6 @@
             :interval="8000"
             controls
             indicators
-            background="#ababab"
             style="text-shadow: 1px 1px 2px #333;"
             @sliding-start="onSlideStart"
             @sliding-end="onSlideEnd"
@@ -26,11 +25,12 @@
               :caption="jugador.nombre"
               :text="jugador.posicion"
               :img-src="jugador.rutaFoto"
-            >
-            </b-carousel-slide>
+            ></b-carousel-slide>
           </b-carousel>
         </div>
-        <div class="col-3"><br /></div>
+        <div class="col-3">
+          <br />
+        </div>
       </div>
       <div class="spinner" v-else>
         <b-spinner variant="primary" label="Cargando"></b-spinner>
@@ -68,26 +68,21 @@ export default {
 .container-fluid {
   padding: 0;
   margin-left: 0;
-  margin-right: 0;
+  background-image: url("http://drive.google.com/uc?export=view&id=1bBpFlrKWo4rQ3Xps-0yDZpfTaGNUDaJB");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .col-3 {
-
   margin-left: 0;
   margin-right: 0;
-  
-  background-position-y: top;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-color:#1890a3;
-  background-position-y: 0cm;
+}
+</style>
+
+<style>
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  width: 45px !important;
+  height: 45px !important;
 }
 
-.bg {
-  background-image: url("../../public/medalla.png");
-  background-position-y: top;
-  background-position: top;
-  background-repeat: no-repeat;
-
-  background-position-y: 0cm;
-}
 </style>

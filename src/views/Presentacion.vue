@@ -9,14 +9,13 @@
         participamos del Torneo Don Bosco Categoria mayores de 35 años.
       </h6>
     </div>
-    <div class="container-fluid"  v-if="!loading" style="background-color: #D4E6F1;">
+    <div v-if="!loading">
       <video class="container-fluid" autoplay muted loop preload >
         <source
           src="https://drive.google.com/uc?export=download&id=1LJZZqDdbN3AD9sxeM5vUoajtxbEYt2Y4"
           type="video/webm"
         />
       </video>
-
       <image-wall-wrapper v-bind:link-images="this.fotos" :config="this.config"></image-wall-wrapper>
     </div>
     <div class="spinner" v-else>
