@@ -82,12 +82,13 @@
           >
           <b-nav-item
             ><b-button
+              :to="{ path: '/Campeonato2019' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >CAMPEONATO 2019</b-button
+              >CAMPEONES</b-button
             ></b-nav-item
           >
 

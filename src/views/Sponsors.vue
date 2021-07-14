@@ -53,9 +53,9 @@ export default {
   mounted() {
     this.loading = false;
     this.fotos = [
-      "http://drive.google.com/uc?export=view&id=1-naW9j43k9SlYDAE8FJ7iBffrENN_hKz",
-      "http://drive.google.com/uc?export=view&id=16eQsU9baGKBZ-KPJ8zXNLg-whyD_whoS",
-      "http://drive.google.com/uc?export=view&id=1Ni5wbct2n2O325UB8u8HZZUwxXWAanqh"
+      "http://drive.google.com/uc?export=view&id=1jrayYF-PHahpr4naniecDC7byYSvUgad",
+      "http://drive.google.com/uc?export=view&id=1acGCJgr19pyyaPEcnnxrlKzDFNrxfYW6",
+      "http://drive.google.com/uc?export=view&id=14qoqcyfJKd5JLEyQm9_YpI77skNKS-bV"
     ];
   }
 };

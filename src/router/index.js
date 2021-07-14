@@ -46,6 +46,11 @@ const routes = [
     path: '/jugadores',
     name: 'Jugadores',
     component: () => import('../views/Jugadores.vue')
+  },
+  {
+    path: '/Campeonato2019',
+    name: 'Campeonato2019',
+    component: () => import('../views/Campeonato2019.vue')
   }
 ]
 
