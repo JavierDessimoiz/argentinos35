@@ -81,8 +81,8 @@ export default {
 
 <style>
 .carousel-control-prev-icon, .carousel-control-next-icon {
-  width: 45px !important;
-  height: 45px !important;
+  width: 100px !important;
+  height: 100px !important;
 }
 
 </style>

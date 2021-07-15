@@ -10,15 +10,16 @@
       </h6>
     </div>
     <div v-if="!loading">
-
-      <video class="container-fluid" autoplay muted loop preload >
+      <div class="row-header">
+      <video class="container-fluid" autoplay muted loop preload>
         <source
           src="https://drive.google.com/uc?export=download&id=1LJZZqDdbN3AD9sxeM5vUoajtxbEYt2Y4"
           type="video/webm"
         />
       </video>
-
-      <image-wall-wrapper v-bind:link-images="this.fotos" :config="this.config"></image-wall-wrapper>
+      
+        <image-wall-wrapper v-bind:link-images="this.fotos" :config="this.config"></image-wall-wrapper>
+      </div>
     </div>
     <div class="spinner" v-else>
       <b-spinner variant="primary" label="Cargando"></b-spinner>
@@ -45,11 +46,11 @@ export default {
           // corner radius
           radius: 0,
           // height of wrapper component
-          height: 300,
+          height: 400,
           // degree of skew for images
           degreeSkew: 18,
           border: {
-            thickness: 1.7,
+            thickness: 1.5,
             color: "#FFFFFF"
           }
         },
@@ -61,7 +62,7 @@ export default {
         // For mode B
         b: {
           // How much bigger will the hovering image be than others
-          scale: 2,
+          scale: 2.2,
           // duration of transition animation
           duration: 450
         }
@@ -75,7 +76,7 @@ export default {
       this.loading = false;
       this.fotos = !response.data ? [] : response.data.map(o => o.ruta);
     });
-  },
+  }
 };
 </script>
 
@@ -90,6 +91,10 @@ export default {
   padding: 0;
   margin-left: 0;
   margin-right: 0;
+}
+
+.row-header {
+  background-color: #d4e6f1;
 }
 </style>
 

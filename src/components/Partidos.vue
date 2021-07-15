@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <br>
+    <br />
     <div v-if="loadingRefresh" class="spinner-border" role="status">
       <span class="sr-only"></span>
     </div>
@@ -8,18 +8,18 @@
       <div
         v-for="(partido, index) in partidos"
         v-bind:key="index"
-        class="col-sm-1 col-md-6 col-xs-6 mt-2 mb-2 "
+        class="col-sm-1 col-md-6 col-xs-6 mt-2 mb-2"
       >
-        <div class="col ">
-          <div class="row-center ">
-            <div class="row-center">
-              <i class="fas fa-thumbtack"></i>
+        <div class="col">
+          <div class="row-center">
+            <div class="row-center-cab">
+              <div class="row-center">
+                <i class="fas fa-thumbtack"></i>
+              </div>
             </div>
             <div class="row-center">
-              <h3 v-if="partido.finalizado && index == 0" >Ultimo partido</h3>
-              <h3 v-else-if="partido.finalizado && index == 1">
-                Anterior partido
-              </h3>
+              <h3 v-if="partido.finalizado && index == 0">Ultimo partido</h3>
+              <h3 v-else-if="partido.finalizado && index == 1">Anterior partido</h3>
               <h3 v-else>Próximo partido</h3>
             </div>
           </div>
@@ -28,82 +28,81 @@
               <strong>Argentinos</strong>
             </div>
             <div class="col">
-              <strong v-if="partido.finalizado"
-                >{{ partido.golesArgentinos }} -
-                {{ partido.golesRival }}</strong
-              >
+              <strong v-if="partido.finalizado">
+                {{ partido.golesArgentinos }} -
+                {{ partido.golesRival }}
+              </strong>
               <strong v-else>- -</strong>
             </div>
-            <div class="col text-left">
-              {{ partido.nombreEquipoRival }}
-            </div>
+            <div class="col text-left">{{ partido.nombreEquipoRival }}</div>
           </div>
           <div class="row">
-            <i class="fas fa-map-pin mr-3 ml-2"></i> <u>Predio</u>:
+            <i class="fas fa-map-pin mr-3 ml-2"></i>
+            <u>Predio</u>
+            :
             {{ partido.predio }}
           </div>
           <div class="row">
-            <i class="fas fa-list-ol mr-2 ml-2"></i> <u>Fecha Nro</u>:
+            <i class="fas fa-list-ol mr-2 ml-2"></i>
+            <u>Fecha Nro</u>
+            :
             {{ partido.nroFechaCampeonato }}
           </div>
           <div class="row">
-            <i class="far fa-calendar-alt mr-2 ml-2"></i><u>Fecha</u>:
-            {{ partido.fecha }}
+            <i class="far fa-calendar-alt mr-2 ml-2"></i>
+            <u>Fecha</u>
+            :
+            {{ partido.fecha.substr(0,10) }}
           </div>
 
           <div class="row">
-            <i class="far fa-clock mr-2 ml-2"></i> <u>Horario</u>:
+            <i class="far fa-clock mr-2 ml-2"></i>
+            <u>Horario</u>
+            :
             {{ partido.hora }}
           </div>
 
           <div class="row" v-if="partido.autoresGoles.length > 0">
-            <i class="fas fa-futbol fa-1x mr-2 ml-2"></i> <u>Goles</u>:
+            <i class="fas fa-futbol fa-1x mr-2 ml-2"></i>
+            <u>Goles</u>
+            :
             {{ partido.autoresGoles }}
           </div>
           <div v-else>
-            <br>
-          </div>    
+            <br />
+          </div>
           <div v-if="usuarioLogueado == true">
             <div class="row mt-2 mb-2 ml-2">
               <b-button
                 variant="outline-success"
                 v-on:click="muestraModalAgregarEditarEliminarPartido(partido)"
               >
-                <b-icon icon="pencil-fill"></b-icon
-              ></b-button>
+                <b-icon icon="pencil-fill"></b-icon>
+              </b-button>
               <b-button
                 variant="outline-danger"
                 v-on:click="muestraModalEliminarPartido(partido)"
                 class="ml-2"
               >
-                <b-icon icon="trash-fill"></b-icon
-              ></b-button>
+                <b-icon icon="trash-fill"></b-icon>
+              </b-button>
               <b-button
                 variant="outline-primary"
                 v-on:click="muestraModalAgregarEditarEliminarPartido(null)"
                 class="ml-2"
-                ><b-icon icon="plus-circle-fill"></b-icon
-              ></b-button>
+              >
+                <b-icon icon="plus-circle-fill"></b-icon>
+              </b-button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <b-modal
-      ref="modalEliminarPartido"
-      title="Eliminar Partido"
-      @ok="deletePartido()"
-      centered
-    >
+    <b-modal ref="modalEliminarPartido" title="Eliminar Partido" @ok="deletePartido()" centered>
       <span>¿Está seguro que desea eliminar el partido?</span>
     </b-modal>
 
-    <b-modal
-      ref="modalAgregarEditarEliminarPartido"
-      title="Agregar partido"
-      hide-footer
-      centered
-    >
+    <b-modal ref="modalAgregarEditarEliminarPartido" title="Agregar partido" hide-footer centered>
       <form @submit.prevent="submit">
         <div class="row">
           <div class="row">
@@ -136,9 +135,7 @@
               v-model="nuevoPartido.fecha"
               required
             />
-            <div v-else>
-              {{ nuevoPartido.fecha }}
-            </div>
+            <div v-else>{{ nuevoPartido.fecha }}</div>
           </div>
           <div class="col-3">
             <label>Hora</label>
@@ -208,13 +205,7 @@
           </div>
         </div>
         <div v-if="!modoEditar" class="d-flex justify-content-center">
-          <button
-            v-if="!loading"
-            type="submit"
-            class="btn btn-success mt-3 mb-2"
-          >
-            Agregar partido
-          </button>
+          <button v-if="!loading" type="submit" class="btn btn-success mt-3 mb-2">Agregar partido</button>
           <b-button v-else class="btn btn-success mt-3 mb-2">
             <div class="spinner-border" role="status">
               <span class="sr-only"></span>
@@ -222,13 +213,7 @@
           </b-button>
         </div>
         <div v-else class="d-flex justify-content-center">
-          <button
-            v-if="!loading"
-            type="submit"
-            class="btn btn-success mt-3 mb-2"
-          >
-            Editar partido
-          </button>
+          <button v-if="!loading" type="submit" class="btn btn-success mt-3 mb-2">Editar partido</button>
           <b-button v-else class="btn btn-success mt-3 mb-2">
             <div class="spinner-border" role="status">
               <span class="sr-only"></span>
@@ -236,10 +221,10 @@
           </b-button>
         </div>
         <div class="row">
-          <b-alert v-if="error != null" show variant="danger"
-            >Ha ocurrido un error al grabar, por favor vuelva a
-            intentar</b-alert
-          >
+          <b-alert v-if="error != null" show variant="danger">
+            Ha ocurrido un error al grabar, por favor vuelva a
+            intentar
+          </b-alert>
         </div>
       </form>
     </b-modal>
@@ -329,7 +314,7 @@ export default {
       this.$refs.modalAgregarEditarEliminarPartido.show();
     },
     submit() {
-      this.nuevoPartido.usuario=this.usuario;
+      this.nuevoPartido.usuario = this.usuario;
       if (this.modoEditar == true) {
         this.editarPartido();
       } else {
@@ -384,7 +369,7 @@ export default {
   padding: 0;
   margin-left: 0;
   margin-right: 0;
-    background-color: #e8f2f8;
+  background-color: #e8f2f8;
 }
 
 .row {
@@ -398,12 +383,13 @@ export default {
   color: white;
   text-shadow: 2px 2px 4px #000000;
   border-top-left-radius: 30px;
-  border-top-right-radius: 30px
+  border-top-right-radius: 30px;
 }
-
+.row-center-cab {
+  background-color: #d4e6f1;
+}
 .h6 {
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
-
 </style>

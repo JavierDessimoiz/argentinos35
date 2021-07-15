@@ -5,64 +5,58 @@
       <span class="sr-only"></span>
     </div>
 
-    <div v-else >
-
-        <div class="row-center" v-for="(noticia, index) in noticias" v-bind:key="index">
+    <div v-else>
+      <div class="row-center ml-2 mr-2" v-for="(noticia, index) in noticias" v-bind:key="index">
+        <div class="row-header-center-cab">
           <div class="row-header-center">
-            <h2>Noticias <i class="fas fa-newspaper"></i></h2>
-          </div>
-
-          <div class="row-title-center ">
-            <h5>
-              <u>{{ noticia.titulo }}</u>
-            </h5>
-          </div>
-          <div class="row-title-center">
-            <p>{{ noticia.cuerpo }}</p>
-          </div>
-
-          <div class="row" v-if="usuarioLogueado == true">
-            <div class="row mt-2 mb-2 ml-2">
-              <b-button
-                variant="outline-success"
-                v-on:click="muestraModalAgregarEditarNoticia(noticias[0])"
-              >
-                <b-icon icon="pencil-fill"></b-icon
-              ></b-button>
-              <b-button
-                variant="outline-danger"
-                v-on:click="muestraModalEliminarNoticia(noticias[0])"
-                class="ml-2"
-              >
-                <b-icon icon="trash-fill"></b-icon
-              ></b-button>
-              <b-button
-                variant="outline-primary"
-                v-on:click="muestraModalAgregarEditarNoticia(null)"
-                class="ml-2"
-                ><b-icon icon="plus-circle-fill"></b-icon
-              ></b-button>
-            </div>
+            <h2>
+              Noticias
+              <i class="fas fa-newspaper"></i>
+            </h2>
           </div>
         </div>
 
+        <div class="row-title-center">
+          <h5>
+            <u>{{ noticia.titulo }}</u>
+          </h5>
+        </div>
+        <div class="row-title-center">
+          <p>{{ noticia.cuerpo }}</p>
+        </div>
+
+        <div class="row" v-if="usuarioLogueado == true">
+          <div class="row mt-2 mb-2 ml-2">
+            <b-button
+              variant="outline-success"
+              v-on:click="muestraModalAgregarEditarNoticia(noticias[0])"
+            >
+              <b-icon icon="pencil-fill"></b-icon>
+            </b-button>
+            <b-button
+              variant="outline-danger"
+              v-on:click="muestraModalEliminarNoticia(noticias[0])"
+              class="ml-2"
+            >
+              <b-icon icon="trash-fill"></b-icon>
+            </b-button>
+            <b-button
+              variant="outline-primary"
+              v-on:click="muestraModalAgregarEditarNoticia(null)"
+              class="ml-2"
+            >
+              <b-icon icon="plus-circle-fill"></b-icon>
+            </b-button>
+          </div>
+        </div>
+      </div>
     </div>
     <br />
-    <b-modal
-      ref="modalEliminarNoticia"
-      title="Eliminar noticia"
-      @ok="deleteNoticia()"
-      centered
-    >
+    <b-modal ref="modalEliminarNoticia" title="Eliminar noticia" @ok="deleteNoticia()" centered>
       <span>¿Está seguro que desea eliminar la noticia?</span>
     </b-modal>
 
-    <b-modal
-      ref="modalAgregarEditarNoticia"
-      title="Agregar Noticia"
-      hide-footer
-      centered
-    >
+    <b-modal ref="modalAgregarEditarNoticia" title="Agregar Noticia" hide-footer centered>
       <form @submit.prevent="submit">
         <div class="row">
           <div class="row">
@@ -75,9 +69,7 @@
                 v-model="nuevaNoticia.fecha"
                 required
               />
-              <div v-else class="form-control form-control-sm">
-                {{ nuevaNoticia.fecha }}
-              </div>
+              <div v-else class="form-control form-control-sm">{{ nuevaNoticia.fecha }}</div>
             </div>
             <div class="row mb-2">
               <label>Titulo de la noticia</label>
@@ -103,13 +95,7 @@
           </div>
         </div>
         <div v-if="!modoEditar" class="d-flex justify-content-center">
-          <button
-            v-if="!loading"
-            type="submit"
-            class="btn btn-success mt-3 mb-2"
-          >
-            Agregar noticia
-          </button>
+          <button v-if="!loading" type="submit" class="btn btn-success mt-3 mb-2">Agregar noticia</button>
           <b-button v-else class="btn btn-success mt-3 mb-2">
             <div class="spinner-border" role="status">
               <span class="sr-only"></span>
@@ -117,13 +103,7 @@
           </b-button>
         </div>
         <div v-else class="d-flex justify-content-center">
-          <button
-            v-if="!loading"
-            type="submit"
-            class="btn btn-success mt-3 mb-2"
-          >
-            Editar noticia
-          </button>
+          <button v-if="!loading" type="submit" class="btn btn-success mt-3 mb-2">Editar noticia</button>
           <b-button v-else class="btn btn-success mt-3 mb-2">
             <div class="spinner-border" role="status">
               <span class="sr-only"></span>
@@ -131,10 +111,10 @@
           </b-button>
         </div>
         <div class="row">
-          <b-alert v-if="error != null" show variant="danger"
-            >Ha ocurrido un error al grabar, por favor vuelva a
-            intentar</b-alert
-          >
+          <b-alert v-if="error != null" show variant="danger">
+            Ha ocurrido un error al grabar, por favor vuelva a
+            intentar
+          </b-alert>
         </div>
       </form>
     </b-modal>
@@ -315,5 +295,9 @@ export default {
 
 .row-center {
   background-color: #ffffff;
+}
+
+.row-header-center-cab {
+  background-color: #d4e6f1;
 }
 </style>

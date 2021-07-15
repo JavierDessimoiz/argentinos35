@@ -1,12 +1,35 @@
 <template>
   <div class="container-fluid">
     <HeaderSection icono="fas fa-camera-retro fa-2x" titulo="SPONSORS" />
+    <div style="background-color: #CCCCCC;">
+      <strong>Queremos agradecer de parte de todo el plantel de Argentinos +35 a nuestros Sponsors por acompañanos y queremos invitarlos a conocerlos.</strong>
+      <br>
+      <strong style=" color: white; text-shadow: 2px 2px 4px #000000;">
+        <a
+          style=" color: white;"
+          href="https://www.instagram.com/elviejo.carlos/"
+          target="_blank"
+        >El viejo Carlos</a> |
+        <a
+          style=" color: white;"
+          href="https://www.instagram.com/elviejo.carlos/"
+          target="_blank"
+        >SETIA</a>|
+        <a
+          style=" color: white;"
+          href="https://www.instagram.com/brullen_garage/?hl=es"
+          target="_blank"
+        >Brüllen Garage</a>
+      </strong>
+    
+    </div>
     <div class="container-fluid" v-if="!loading">
       <image-wall-wrapper v-bind:link-images="this.fotos" :config="this.config"></image-wall-wrapper>
     </div>
     <div class="spinner" v-else>
       <b-spinner variant="primary" label="Cargando"></b-spinner>
     </div>
+    
   </div>
 </template>
 <script>
@@ -27,12 +50,12 @@ export default {
           // corner radius
           radius: 0,
           // height of wrapper component
-          height: 500,
+          height: 400,
           // degree of skew for images
           degreeSkew: 8,
           border: {
-            thickness: 1,
-            color: "#041F8A"
+            thickness: 2,
+            color: "#CCCCCC"
           }
         },
         /**
