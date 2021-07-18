@@ -8,11 +8,11 @@
     <Body v-bind:usuarioLogueado="this.usuarioLogueado" v-bind:usuario="this.usuario"/>
     <Footer />
     <!-- Modal Deslogueo -->
-    <b-modal ref="modalLogout" title="Logout Admin" @ok="desloguear()" centered>
+    <b-modal ref="modalLogout" title="Logout Admin." @ok="desloguear()" centered>
       <span>¿Está seguro que desea desloguearse?</span>
     </b-modal>
         <!-- Modal login correcto  -->
-    <b-modal ref="modalSuccess" title="Login Admin" ok-only centered>
+    <b-modal ref="modalSuccess" title="Login Admin." ok-only centered>
       <p class="my-4">Bienvenido <strong>{{ this.usuario }}</strong>, ya podés administrar la página</p>
     </b-modal>
   </div>
