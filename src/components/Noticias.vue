@@ -6,7 +6,7 @@
     </div>
 
     <div v-else>
-      <div class="row-center ml-2 mr-2" v-for="(noticia, index) in noticias" v-bind:key="index">
+      <div class="row-center ml-3 mr-3" v-for="(noticia, index) in noticias" v-bind:key="index">
         <div class="row-header-center-cab">
           <div class="row-header-center">
             <h2>
@@ -49,6 +49,11 @@
             </b-button>
           </div>
         </div>
+         <div class="row-header-center-cab">
+            <div class="row-center-button">
+              <br />
+            </div>
+          </div>
       </div>
     </div>
     <br />
@@ -300,4 +305,11 @@ export default {
 .row-header-center-cab {
   background-color: #d4e6f1;
 }
+
+.row-center-button {
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
 </style>

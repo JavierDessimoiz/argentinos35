@@ -51,6 +51,11 @@ const routes = [
     path: '/Campeonato2019',
     name: 'Campeonato2019',
     component: () => import('../views/Campeonato2019.vue')
+  },
+  {
+    path: '/Contacto',
+    name: 'Contacto',
+    component: () => import('../views/Contacto.vue')
   }
 ]
 

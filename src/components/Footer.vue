@@ -13,7 +13,7 @@
           Sponsors:
           <br />
           <a style=" color: white;" href="https://www.instagram.com/elviejo.carlos/" target="_blank"> El viejo Carlos</a> |
-          <a style=" color: white;" href="https://www.instagram.com/elviejo.carlos/" target="_blank">SETIA</a>|
+          <a style=" color: white;" href="http://setia.org.ar/" target="_blank">SETIA</a>|
           <a style=" color: white;" href="https://www.instagram.com/brullen_garage/?hl=es" target="_blank">Brüllen Garage</a>
         </h5>
       </div>

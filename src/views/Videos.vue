@@ -3,7 +3,7 @@
     <HeaderSection icono="far fa-play-circle fa-2x" titulo="VIDEOS" />
     <div v-if="!loading">
       <div v-for="video in videos" :key="video.id">
-        <h6 style="background-color: #D4E6F1;">{{video.titulo}}</h6>
+        <div class="row-title-center" style="background-color: #D4E6F1;"><strong>{{video.titulo}}</strong></div>
         <b-embed
           :key="video.id"
           :src="video.ruta"
@@ -49,5 +49,8 @@ export default {
   padding: 0;
   margin-left: 0;
   margin-right: 0;
+}
+.row-title-center {
+  color: #2d3279;
 }
 </style>

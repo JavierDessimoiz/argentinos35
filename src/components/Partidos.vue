@@ -12,7 +12,7 @@
       >
         <div class="col">
           <div class="row-center">
-            <div class="row-center-cab">
+            <div class="row-center-cab">             
               <div class="row-center">
                 <i class="fas fa-thumbtack"></i>
               </div>
@@ -43,6 +43,7 @@
             {{ partido.predio }}
           </div>
           <div class="row">
+
             <i class="fas fa-list-ol mr-2 ml-2"></i>
             <u>Fecha Nro</u>
             :
@@ -52,7 +53,7 @@
             <i class="far fa-calendar-alt mr-2 ml-2"></i>
             <u>Fecha</u>
             :
-            {{ partido.fecha.substr(0,10) }}
+            {{ new Date(partido.fecha).toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}
           </div>
 
           <div class="row">
@@ -95,6 +96,11 @@
               </b-button>
             </div>
           </div>
+          <div class="row-center-cab">
+            <div class="row-center-button">
+              <br />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -135,7 +141,9 @@
               v-model="nuevoPartido.fecha"
               required
             />
-            <div v-else>{{ nuevoPartido.fecha }}</div>
+            <div
+              v-else
+            >{{ new Date(nuevoPartido.fecha).toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</div>
           </div>
           <div class="col-3">
             <label>Hora</label>
@@ -369,7 +377,7 @@ export default {
   padding: 0;
   margin-left: 0;
   margin-right: 0;
-  background-color: #e8f2f8;
+  background-color: #FFFFFF;
 }
 
 .row {
@@ -385,6 +393,13 @@ export default {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
+
+.row-center-button {
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
 .row-center-cab {
   background-color: #d4e6f1;
 }

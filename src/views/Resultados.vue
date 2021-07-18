@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid">
-    <HeaderSection icono="far fa-newspaper fa-2x" titulo="NOTICIAS" />
+    <HeaderSection icono="far fa-newspaper fa-2x" titulo="Web del Torneo" />
     <div class="embed-responsive embed-responsive-16by9">
       <iframe
         class="embed-responsive-item"
-        src="https://www.torneosdonbosco.com.ar/veteranos-35"
+        src="https://www.torneosdonbosco.com.ar/"
         allowfullscreen
       ></iframe>
     </div>

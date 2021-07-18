@@ -55,3 +55,11 @@ export default {
 }
 
 </style>
+
+
+<style>
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  width: 100px !important;
+  height: 100px !important;
+}
+</style>

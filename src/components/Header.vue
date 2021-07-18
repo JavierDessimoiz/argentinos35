@@ -2,13 +2,7 @@
   <div class="container-fluid">
     <b-navbar toggleable="sm" type="dark" variant="info" style="padding: 0; ">
       <b-navbar-brand>
-        <img
-          src="../../public/escudo_header.png"
-          class="ml-2"
-          height="60"
-          width="90"
-          alt="Escudo"
-        />
+        <img src="../../public/escudo_header.png" class="ml-2" height="60" width="90" alt="Escudo" />
       </b-navbar-brand>
       <b-navbar-nav>
         <b-nav-text>
@@ -25,133 +19,115 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item
-            ><b-button
+          <b-nav-item>
+            <b-button
               :to="{ path: '/Presentacion' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >NOSOTROS
-            </b-button>
+            >NOSOTROS</b-button>
           </b-nav-item>
-          <b-nav-item
-            ><b-button
+          <b-nav-item>
+            <b-button
               :to="{ path: '/Jugadores' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >JUGADORES</b-button
-            ></b-nav-item
-          >
-          <b-nav-item
-            ><b-button
+            >JUGADORES</b-button>
+          </b-nav-item>
+          <b-nav-item>
+            <b-button
               :to="{ path: '/Resultados' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >TORNEO
-            </b-button></b-nav-item
-          >
-          <b-nav-item
-            ><b-button
+            >TORNEO</b-button>
+          </b-nav-item>
+          <b-nav-item>
+            <b-button
               :to="{ path: '/Galeria' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >GALERIA</b-button
-            ></b-nav-item
-          >
-          <b-nav-item
-            ><b-button
+            >GALERIA</b-button>
+          </b-nav-item>
+          <b-nav-item>
+            <b-button
               :to="{ path: '/Videos' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >VIDEOS</b-button
-            ></b-nav-item
-          >
-          <b-nav-item
-            ><b-button
+            >VIDEOS</b-button>
+          </b-nav-item>
+          <b-nav-item>
+            <b-button
               :to="{ path: '/Campeonato2019' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >CAMPEONES</b-button
-            ></b-nav-item
-          >
+            >CAMPEONES</b-button>
+          </b-nav-item>
 
-          <b-nav-item
-            ><b-button
+          <b-nav-item>
+            <b-button
               :to="{ path: '/Sponsors' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >SPONSORS</b-button
-            ></b-nav-item
-          >
+            >SPONSORS</b-button>
+          </b-nav-item>
 
-          <b-nav-item
-            ><b-button
+          <b-nav-item>
+            <b-button
+              :to="{ path: '/Contacto' }"
               pill
               squared
               variant="outline-light"
               color="white"
               size="sm"
-              >CONTACTO</b-button
-            ></b-nav-item
-          >
+            >CONTACTO</b-button>
+          </b-nav-item>
           <div v-if="!usuarioLogueado">
             <b-nav-item>
-              <Login @loginUsuario="loginUsuario"/>
+              <Login @loginUsuario="loginUsuario" />
             </b-nav-item>
           </div>
           <div v-else>
             <b-nav-item>
               <b-button
-              pill
-              squared
-              variant="outline-light"
-              color="white"
-              size="sm"
-              v-on:click="logoutUsuario()"
-              >LOGOUT</b-button
-            >
+                pill
+                squared
+                variant="outline-light"
+                color="white"
+                size="sm"
+                v-on:click="logoutUsuario()"
+              >LOGOUT</b-button>
             </b-nav-item>
           </div>
-          <!--
-          <b-nav-item>
+          <b-nav-text>
             <img
               src="../../public/fondo_header_der.png"
               class="img-fluid"
               height="130"
               width="110"
             />
-          </b-nav-item>
-          -->
-          <b-nav-item>
-            <div class="row-rigth">
-              <h6 style="color: white; text-shadow: 2px 2px 4px #000000;">
-                <b-icon icon="star-fill" font-scale="1" animation="fade">
-                </b-icon>
-                2019
-              </h6>
-            </div>
-          </b-nav-item>
+          </b-nav-text>
         </b-navbar-nav>
+
       </b-collapse>
     </b-navbar>
   </div>
@@ -165,14 +141,14 @@ export default {
   props: {
     usuarioLogueado: Boolean
   },
-    methods: {
-      logoutUsuario(){
-          this.$emit("logoutUsuario");
-      },
-      loginUsuario(){
-        this.$emit("loginUsuario");
-      }
+  methods: {
+    logoutUsuario() {
+      this.$emit("logoutUsuario");
+    },
+    loginUsuario() {
+      this.$emit("loginUsuario");
     }
+  }
 };
 </script>
 

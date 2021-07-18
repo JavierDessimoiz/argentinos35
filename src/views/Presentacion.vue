@@ -11,7 +11,7 @@
     </div>
     <div v-if="!loading">
       <div class="row-header">
-      <video class="container-fluid" autoplay muted loop preload>
+      <video class="container-fluid" autoplay muted loop>
         <source
           src="https://drive.google.com/uc?export=download&id=1LJZZqDdbN3AD9sxeM5vUoajtxbEYt2Y4"
           type="video/webm"
@@ -46,7 +46,7 @@ export default {
           // corner radius
           radius: 0,
           // height of wrapper component
-          height: 400,
+          height: 500,
           // degree of skew for images
           degreeSkew: 18,
           border: {
@@ -62,7 +62,7 @@ export default {
         // For mode B
         b: {
           // How much bigger will the hovering image be than others
-          scale: 2.2,
+          scale: 2.3,
           // duration of transition animation
           duration: 450
         }

@@ -80,9 +80,14 @@ export default {
 </style>
 
 <style>
+
 .carousel-control-prev-icon, .carousel-control-next-icon {
   width: 100px !important;
   height: 100px !important;
+}
+
+.carousel-caption {
+  padding-bottom: 0px !important;
 }
 
 </style>
