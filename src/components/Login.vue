@@ -9,7 +9,7 @@
       v-on:click="mostrarModalLogin()"
       >LOGIN
     </b-button>
-    <b-modal ref="modalLogin" title="Login" hide-footer centered>
+    <b-modal ref="modalLogin" title="Admin" hide-footer centered>
       <div class="form-group">
         <label>Usuario</label>
         <input
