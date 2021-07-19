@@ -12,7 +12,7 @@
       >
         <div class="col">
           <div class="row-center">
-            <div class="row-center-cab">             
+            <div class="row-center-cab">
               <div class="row-center">
                 <i class="fas fa-thumbtack"></i>
               </div>
@@ -43,7 +43,6 @@
             {{ partido.predio }}
           </div>
           <div class="row">
-
             <i class="fas fa-list-ol mr-2 ml-2"></i>
             <u>Fecha Nro</u>
             :
@@ -377,7 +376,7 @@ export default {
   padding: 0;
   margin-left: 0;
   margin-right: 0;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .row {
@@ -395,7 +394,7 @@ export default {
 }
 
 .row-center-button {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }

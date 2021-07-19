@@ -1,12 +1,8 @@
 <template>
   <div class="container-fluid">
     <HeaderSection icono="fas fa-running fa-2x" titulo="JUGADORES" />
-    <div class="col">
-      <div class="row" v-if="!loading">
+      <div class="row justify-content-center" v-if="!loading">
         <div class="col-3">
-          <br />
-        </div>
-        <div class="col-6">
           <b-carousel
             id="carousel-1"
             v-model="slide"
@@ -28,15 +24,11 @@
             ></b-carousel-slide>
           </b-carousel>
         </div>
-        <div class="col-3">
-          <br />
-        </div>
       </div>
       <div class="spinner" v-else>
         <b-spinner variant="primary" label="Cargando"></b-spinner>
       </div>
     </div>
-  </div>
 </template>
 
 
@@ -73,15 +65,17 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.col-3 {
+
+.row {
+  padding: 0;
   margin-left: 0;
   margin-right: 0;
 }
 </style>
 
 <style>
-
-.carousel-control-prev-icon, .carousel-control-next-icon {
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
   width: 100px !important;
   height: 100px !important;
 }
@@ -89,5 +83,5 @@ export default {
 .carousel-caption {
   padding-bottom: 0px !important;
 }
-
 </style>
+
