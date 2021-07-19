@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <HeaderSection icono="fas fa-running fa-2x" titulo="JUGADORES" />
       <div class="row row-centro" v-if="!loading">
-        <div class="col-3">
+        <div class="col-4">
           <b-carousel
             id="carousel-1"
             v-model="slide"

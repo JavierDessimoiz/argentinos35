@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid">
     <br />
+
     <div v-if="loadingRefresh" class="spinner-border" role="status">
       <span class="sr-only"></span>
     </div>
