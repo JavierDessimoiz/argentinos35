@@ -10,7 +10,7 @@
     <!-- Modal Deslogueo -->
     <b-modal ref="modalLogout" title="Logout Admin." @ok="desloguear()" centered>
       <span>¿Está seguro que desea desloguearse?</span>
-    </b-modal>
+    </b-modal>git a
         <!-- Modal login correcto  -->
     <b-modal ref="modalSuccess" title="Login Admin." ok-only centered>
       <p class="my-4">Bienvenido <strong>{{ this.usuario }}</strong>, ya podés administrar la página</p>
