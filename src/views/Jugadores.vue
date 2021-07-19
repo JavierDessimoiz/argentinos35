@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <HeaderSection icono="fas fa-running fa-2x" titulo="JUGADORES" />
       <div class="row row-centro" v-if="!loading">
-        <div class="col-4">
+        <div class="col-3">
           <b-carousel
             id="carousel-1"
             v-model="slide"
@@ -74,16 +74,4 @@ export default {
 }
 </style>
 
-<style>
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  width: 100px !important;
-  height: 100px !important;
-}
-
-.carousel-caption {
-  padding-bottom: 0px !important;
-}
-
-</style>
 
