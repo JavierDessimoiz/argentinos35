@@ -9,6 +9,8 @@
         v-for="(partido, index) in partidos"
         v-bind:key="index"
         class="col-sm-1 col-md-6 col-xs-6 mt-2 mb-2"
+         data-aos="zoom-in"
+     data-aos-anchor-placement="bottom-bottom"
       >
         <div class="col">
           <div class="row-center">
@@ -406,4 +408,6 @@ export default {
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
+
+
 </style>

@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <HeaderSection icono="far fa-play-circle fa-2x" titulo="VIDEOS" />
     <div v-if="!loading">
-      <div v-for="video in videos" :key="video.id">
-        <div class="row-title-center" style="background-color: #D4E6F1;"><strong>{{video.titulo}}</strong></div>
+      <div data-aos="flip-down" v-for="video in videos" :key="video.id">
+        <div class="row-title-center"  style="background-color: #D4E6F1;"><strong>{{video.titulo}}</strong></div>
         <b-embed
           :key="video.id"
           :src="video.ruta"

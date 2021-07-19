@@ -6,7 +6,7 @@
     </div>
 
     <div v-else>
-      <div class="row-center ml-3 mr-3" v-for="(noticia, index) in noticias" v-bind:key="index">
+      <div class="row-center ml-3 mr-3" data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000" v-for="(noticia, index) in noticias" v-bind:key="index">
         <div class="row-header-center-cab">
           <div class="row-header-center">
             <h2>

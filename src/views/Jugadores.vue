@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <HeaderSection icono="fas fa-running fa-2x" titulo="JUGADORES" />
-      <div class="row justify-content-center" v-if="!loading">
+      <div class="row row-centro" v-if="!loading">
         <div class="col-3">
           <b-carousel
             id="carousel-1"
@@ -66,7 +66,8 @@ export default {
   background-size: cover;
 }
 
-.row {
+.row-centro{
+  justify-content: center;
   padding: 0;
   margin-left: 0;
   margin-right: 0;
@@ -83,5 +84,6 @@ export default {
 .carousel-caption {
   padding-bottom: 0px !important;
 }
+
 </style>
 
