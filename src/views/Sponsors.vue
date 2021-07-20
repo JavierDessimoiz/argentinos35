@@ -50,7 +50,7 @@ export default {
           // corner radius
           radius: 0,
           // height of wrapper component
-          height: 400,
+          height: 500,
           // degree of skew for images
           degreeSkew: 8,
           border: {

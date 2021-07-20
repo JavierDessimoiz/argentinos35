@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <HeaderSection icono="fas fa-address-book fa-2x" titulo="CONTACTO" />
     <div class="container-fluid-center">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" >
         <b-card no-body class="overflow-hidden mb-4 mt-4 mr-4 ml-4" style="max-width: 450px;">
           <b-row no-gutters class="overflow-hidden mb-2 mt-2 ml-2 mr-2">
             <b-col md="6">

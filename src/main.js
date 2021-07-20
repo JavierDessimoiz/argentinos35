@@ -19,9 +19,16 @@ Vue.use(IconsPlugin)
 Vue.config.productionTip = false
 
 new Vue({
-  created () {
-    AOS.init()
+  created() {
+    AOS.init({
+      easing: 'ease-out-back',
+      duration: 1500,
+      offset: 120,
+      mirror: false ,
+      anchorPlacement: 'top-bottom' ,
+      })
   },
+
   router,
   render: h => h(App)
 }).$mount('#app')

@@ -55,6 +55,12 @@ export default {
 };
 </script>
 
+<style>
+.carousel-caption{
+  padding-bottom: 0px !important;
+  bottom: 10px !important;
+}
+</style>
 
 <style scoped>
 .container-fluid {
@@ -73,5 +79,7 @@ export default {
   margin-right: 0;
 }
 </style>
+
+
 
 
