@@ -11,13 +11,13 @@
     </div>
     <div v-if="!loading">
       <div class="row-header">
-      <video class="container-fluid" autoplay muted loop>
-        <source
-          src="https://drive.google.com/uc?export=download&id=1LJZZqDdbN3AD9sxeM5vUoajtxbEYt2Y4"
-          type="video/webm"
-        />
-      </video>
-      
+        <video class="container-fluid" autoplay muted loop>
+          <source
+            src="https://drive.google.com/uc?export=download&id=1LJZZqDdbN3AD9sxeM5vUoajtxbEYt2Y4"
+            type="video/webm"
+          />
+        </video>
+
         <image-wall-wrapper v-bind:link-images="this.fotos" :config="this.config"></image-wall-wrapper>
       </div>
     </div>
@@ -30,6 +30,7 @@
 <script>
 import HeaderSection from "../components/HeaderSection.vue";
 import { RestService } from "../js/services/RestService.js";
+import { contadorService } from "../js/services/contadorService.js";
 import ImageWallWrapper from "../components/image-wall/ImageWallWrapper.vue";
 export default {
   name: "Presentacion",
@@ -66,7 +67,10 @@ export default {
           // duration of transition animation
           duration: 450
         }
-      }
+      },
+      contador: {},
+      response: null,
+      error: null
     };
   },
   mounted() {
@@ -75,7 +79,26 @@ export default {
       this.fotos = response.data;
       this.loading = false;
       this.fotos = !response.data ? [] : response.data.map(o => o.ruta);
-    });
+    }),
+      contadorService
+        .getContador$(null)
+        .then(response => {
+          this.contador = response.data[0];
+          this.contador.principal = Number(this.contador.principal) + Number(1);
+          contadorService
+            .updateContador$(this.contador._id, this.contador)
+            .then(response => {
+              this.response = response;
+              this.error = null;
+            })
+            .catch(error => {
+              this.loading = false;
+              this.error = error;
+            });
+        })
+        .catch(error => {
+          this.error = error;
+        });
   }
 };
 </script>

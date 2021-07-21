@@ -20,9 +20,9 @@ export default {
   props: {
     usuarioLogueado: Boolean,
     usuario: String
-  },
-  
+  }
 };
+
 </script>
 
 <style scoped>

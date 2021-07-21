@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <HeaderSection icono="fas fa-camera-retro fa-2x" titulo="GALERIA" />
-    <div v-if="!loading">
+    <div class="container-fluid" v-if="!loading">
       <b-carousel
         id="carousel-galeria"
         v-model="slide"
@@ -25,6 +25,7 @@
 <script>
 import HeaderSection from "../components/HeaderSection.vue";
 import { RestService } from "../js/services/RestService.js";
+import { contadorService } from "../js/services/contadorService.js";
 export default {
   name: "Galeria",
   components: {
@@ -33,7 +34,10 @@ export default {
   data() {
     return {
       fotos: {},
-      loading: true
+      loading: true,
+      response: null,
+      error: null,
+      contador:{}
     };
   },
   mounted() {
@@ -42,6 +46,25 @@ export default {
       this.fotos = response.data;
       this.loading = false;
     });
+    contadorService
+      .getContador$(null)
+      .then(response => {
+        this.contador = response.data[0];
+        this.contador.galeria = Number(this.contador.galeria) + Number(1);
+        contadorService
+          .updateContador$(this.contador._id, this.contador)
+          .then(response => {
+            this.response = response;
+            this.error = null;
+          })
+          .catch(error => {
+            this.loading = false;
+            this.error = error;
+          });
+      })
+      .catch(error => {
+        this.error = error;
+      });
   }
 };
 </script>
@@ -53,12 +76,12 @@ export default {
   margin-left: 0;
   margin-right: 0;
 }
-
 </style>
 
 
 <style>
-.carousel-control-prev-icon, .carousel-control-next-icon {
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
   width: 100px !important;
   height: 100px !important;
 }

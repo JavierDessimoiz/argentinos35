@@ -3,25 +3,20 @@
     <HeaderSection icono="fas fa-camera-retro fa-2x" titulo="SPONSORS" />
     <div style="background-color: #CCCCCC;">
       <strong>Queremos agradecer de parte de todo el plantel de Argentinos +35 a nuestros Sponsors por acompañanos y queremos invitarlos a conocerlos.</strong>
-      <br>
+      <br />
       <strong style=" color: white; text-shadow: 2px 2px 4px #000000;">
         <a
           style=" color: white;"
           href="https://www.instagram.com/elviejo.carlos/"
           target="_blank"
         >El viejo Carlos</a> |
-        <a
-          style=" color: white;"
-          href="http://setia.org.ar/"
-          target="_blank"
-        >SETIA</a>|
+        <a style=" color: white;" href="http://setia.org.ar/" target="_blank">SETIA</a>|
         <a
           style=" color: white;"
           href="https://www.instagram.com/brullen_garage/?hl=es"
           target="_blank"
         >Brüllen Garage</a>
       </strong>
-    
     </div>
     <div class="container-fluid" v-if="!loading">
       <image-wall-wrapper v-bind:link-images="this.fotos" :config="this.config"></image-wall-wrapper>
@@ -29,12 +24,12 @@
     <div class="spinner" v-else>
       <b-spinner variant="primary" label="Cargando"></b-spinner>
     </div>
-    
   </div>
 </template>
 <script>
 import ImageWallWrapper from "../components/image-wall/ImageWallWrapper.vue";
 import HeaderSection from "../components/HeaderSection.vue";
+import { contadorService } from "../js/services/contadorService.js";
 export default {
   name: "Sponsors",
   components: {
@@ -50,7 +45,7 @@ export default {
           // corner radius
           radius: 0,
           // height of wrapper component
-          height: 500,
+          height: 400,
           // degree of skew for images
           degreeSkew: 8,
           border: {
@@ -70,7 +65,10 @@ export default {
           // duration of transition animation
           duration: 250
         }
-      }
+      },
+      response: null,
+      error: null,
+      contador: {}
     };
   },
   mounted() {
@@ -80,6 +78,25 @@ export default {
       "http://drive.google.com/uc?export=view&id=1acGCJgr19pyyaPEcnnxrlKzDFNrxfYW6",
       "http://drive.google.com/uc?export=view&id=14qoqcyfJKd5JLEyQm9_YpI77skNKS-bV"
     ];
+    contadorService
+      .getContador$(null)
+      .then(response => {
+        this.contador = response.data[0];
+        this.contador.sponsors = Number(this.contador.sponsors) + Number(1);
+        contadorService
+          .updateContador$(this.contador._id, this.contador)
+          .then(response => {
+            this.response = response;
+            this.error = null;
+          })
+          .catch(error => {
+            this.loading = false;
+            this.error = error;
+          });
+      })
+      .catch(error => {
+        this.error = error;
+      });
   }
 };
 </script>

@@ -31,26 +31,6 @@
           </b-nav-item>
           <b-nav-item>
             <b-button
-              :to="{ path: '/Jugadores' }"
-              pill
-              squared
-              variant="outline-light"
-              color="white"
-              size="sm"
-            >JUGADORES</b-button>
-          </b-nav-item>
-          <b-nav-item>
-            <b-button
-              :to="{ path: '/Resultados' }"
-              pill
-              squared
-              variant="outline-light"
-              color="white"
-              size="sm"
-            >TORNEO</b-button>
-          </b-nav-item>
-          <b-nav-item>
-            <b-button
               :to="{ path: '/Galeria' }"
               pill
               squared
@@ -79,7 +59,26 @@
               size="sm"
             >CAMPEONES</b-button>
           </b-nav-item>
-
+          <b-nav-item>
+            <b-button
+              :to="{ path: '/Jugadores' }"
+              pill
+              squared
+              variant="outline-light"
+              color="white"
+              size="sm"
+            >JUGADORES</b-button>
+          </b-nav-item>
+          <b-nav-item>
+            <b-button
+              :to="{ path: '/Resultados' }"
+              pill
+              squared
+              variant="outline-light"
+              color="white"
+              size="sm"
+            >TORNEO</b-button>
+          </b-nav-item>
           <b-nav-item>
             <b-button
               :to="{ path: '/Sponsors' }"
@@ -119,15 +118,9 @@
             </b-nav-item>
           </div>
           <b-nav-text>
-            <img
-              src="../../public/fondo_header_der.png"
-              class="img-fluid"
-              height="130"
-              width="110"
-            />
+            <img src="../../public/fondo_header_der.png" class="img-fluid" height="130" width="110" />
           </b-nav-text>
         </b-navbar-nav>
-
       </b-collapse>
     </b-navbar>
   </div>

@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <HeaderSection icono="fas fa-address-book fa-2x" titulo="CONTACTO" />
     <div class="container-fluid-center">
-      <div class="row justify-content-center" >
+      <div class="row justify-content-center">
         <b-card no-body class="overflow-hidden mb-4 mt-4 mr-4 ml-4" style="max-width: 450px;">
           <b-row no-gutters class="overflow-hidden mb-2 mt-2 ml-2 mr-2">
             <b-col md="6">
@@ -52,7 +52,11 @@
 
           <b-row no-gutters class="overflow-hidden mb-2 mt-2">
             <b-col md="6">
-              <b-button href="mailto:argentinos35@gmail.com" target="_blank" variant="outline-danger">
+              <b-button
+                href="mailto:argentinos35@gmail.com"
+                target="_blank"
+                variant="outline-danger"
+              >
                 <b-icon icon="envelope" font-scale="7.5"></b-icon>
               </b-button>
             </b-col>
@@ -76,11 +80,39 @@
 
 <script>
 import HeaderSection from "../components/HeaderSection.vue";
-
+import { contadorService } from "../js/services/contadorService.js";
 export default {
   name: "Contacto",
   components: {
     HeaderSection
+  },
+  data() {
+    return {
+      response: null,
+      error: null,
+      contador: {}
+    };
+  },
+  mounted() {
+    contadorService
+      .getContador$(null)
+      .then(response => {
+        this.contador = response.data[0];
+        this.contador.contacto = Number(this.contador.contacto) + Number(1);
+        contadorService
+          .updateContador$(this.contador._id, this.contador)
+          .then(response => {
+            this.response = response;
+            this.error = null;
+          })
+          .catch(error => {
+            this.loading = false;
+            this.error = error;
+          });
+      })
+      .catch(error => {
+        this.error = error;
+      });
   }
 };
 </script>

@@ -22,7 +22,7 @@ new Vue({
   created() {
     AOS.init({
       easing: 'ease-out-back',
-      duration: 1500,
+      duration: 900,
       offset: 120,
       mirror: false ,
       anchorPlacement: 'top-bottom' ,

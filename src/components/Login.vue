@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <b-button
       pill
       squared
@@ -7,40 +7,23 @@
       color="white"
       size="sm"
       v-on:click="mostrarModalLogin()"
-      >LOGIN
-    </b-button>
+    >LOGIN</b-button>
     <b-modal ref="modalLogin" title="Admin" hide-footer centered>
       <div class="form-group">
         <label>Usuario</label>
-        <input
-          type="text"
-          class="form-control form-control-lg"
-          v-model="usuario"
-        />
-
+        <input type="text" class="form-control form-control-lg" v-model="usuario" />
       </div>
       <div class="form-group">
         <label>Contraseña</label>
-        <input
-          type="password"
-          class="form-control form-control-lg"
-          v-model="contrasenia"
-        />
+        <input type="password" class="form-control form-control-lg" v-model="contrasenia" />
       </div>
       <button
         v-if="!loading"
         type="submit"
         class="btn btn-dark btn-lg btn-block"
         v-on:click="ingresar(usuario, contrasenia)"
-      >
-        Ingresar
-      </button>
-      <button
-        v-else
-        disabled
-        type="submit"
-        class="btn btn-dark btn-lg btn-block"
-      >
+      >Ingresar</button>
+      <button v-else disabled type="submit" class="btn btn-dark btn-lg btn-block">
         <div class="spinner-border" role="status">
           <span class="sr-only"></span>
         </div>
@@ -60,6 +43,7 @@
 
 <script>
 import { administradoresService } from "./../js/services/administradoresService.js";
+import { contadorService } from "../js/services/contadorService.js";
 export default {
   name: "Login",
   components: {},
@@ -71,12 +55,14 @@ export default {
       usuario: null,
       contrasenia: null,
       loading: false,
-      error: null
+      error: null,
+      response: null,
+      contador:{}
     };
   },
   methods: {
-      mostrarModalLogin() {
-        this.$refs.modalLogin.show();
+    mostrarModalLogin() {
+      this.$refs.modalLogin.show();
     },
     ingresar(usuario, contrasenia) {
       this.loading = true;
@@ -84,9 +70,29 @@ export default {
         .getAdministradorByUsuarioAndContrasenia(usuario, contrasenia)
         .then(response => {
           this.loading = false;
-          if (response.data && response.data.length > 0) {    
+          if (response.data && response.data.length > 0) {
             localStorage.setItem("usuario", response.data[0].usuario);
             this.$emit("loginUsuario");
+            contadorService
+              .getContador$(null)
+              .then(response => {
+                this.contador = response.data[0];
+                this.contador.login =
+                  Number(this.contador.login) + Number(1);
+                contadorService
+                  .updateContador$(this.contador._id, this.contador)
+                  .then(response => {
+                    this.response = response;
+                    this.error = null;
+                  })
+                  .catch(error => {
+                    this.loading = false;
+                    this.error = error;
+                  });
+              })
+              .catch(error => {
+                this.error = error;
+              });
           } else {
             localStorage.removeItem("usuario");
             this.$refs.modalError.show();
@@ -98,8 +104,8 @@ export default {
           this.error = error;
           this.loading = false;
         });
-        this.usuario=null;
-        this.contrasenia=null;
+      this.usuario = null;
+      this.contrasenia = null;
     }
   }
 };
