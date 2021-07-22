@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <HeaderSection icono="fas fa-camera-retro fa-2x" titulo="SPONSORS" />
     <div style="background-color: #CCCCCC;">
-      <strong>Queremos agradecer de parte de todo el plantel de Argentinos +35 a nuestros Sponsors por acompañanos y queremos invitarlos a conocerlos.</strong>
+      <strong>Queremos agradecer de parte de todo el plantel de Argentinos +35 a nuestros Sponsors por acompañarnos asimismo queremos invitarlos a conocerlos.</strong>
       <br />
       <strong style=" color: white; text-shadow: 2px 2px 4px #000000;">
         <a
