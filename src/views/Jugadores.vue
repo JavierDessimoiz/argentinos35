@@ -13,8 +13,6 @@
           @sliding-start="onSlideStart"
           @sliding-end="onSlideEnd"
           class="row"
-          img-width="1024"
-          img-height="480"
         >
           <!-- Text slides with image -->
           <b-carousel-slide
@@ -103,7 +101,6 @@ export default {
   padding: 0;
   margin-left: 0;
   margin-right: 0;
-  height: 750px;
 }
 </style>
 
