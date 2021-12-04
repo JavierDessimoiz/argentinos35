@@ -25,6 +25,21 @@ export const partidoService = {
     deletePartido(id){
         return AXIOS.delete(`${URL_API}/partidos/${id}?apikey=${API_KEY}`);
     },
-
-    
+    //goleadores de un partido
+    getGolesPatido$(id) {
+        return AXIOS.get(`${URL_API}/partidos/${id}/goles?apikey=${API_KEY}`);
+    },
+    //Sedes
+    getSedes$() {
+        return AXIOS.get(`${URL_API}/sedes?apikey=${API_KEY}&h={"$orderby": {"nombre": 1}}`);
+    },
+    //Rivales
+    getRivales$() {
+        return AXIOS.get(`${URL_API}/rivales?apikey=${API_KEY}&h={"$orderby": {"nombre": 1}}`);
+    },
+    // trae los partidos
+    getPartidos$() {
+        //const query = `{"idcliente":${clienteId},"moneda":"${monedaId}"}`;
+        return AXIOS.get(`${URL_API}/partidos?apikey=${API_KEY}&q={}&sort=fecha&dir=-1`);
+    },
 }

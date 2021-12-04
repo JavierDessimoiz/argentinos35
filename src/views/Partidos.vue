@@ -317,12 +317,12 @@ export default {
     }
   },
   mounted() {
-    this.getUltimosDosPartidos();
+    this.getPartidos();
   },
   methods: {
-    getUltimosDosPartidos() {
+    getPartidos() {
       this.loadingRefresh = true;
-      partidoService.getUltimosDosPartido$(null).then(response => {
+      partidoService.getPartido$(null).then(response => {
         this.loadingRefresh = false;
         this.partidos = response.data;
         this.partidos.forEach(p =>
@@ -343,7 +343,7 @@ export default {
         .deletePartido(this.partidoSeleccionado._id)
         .then(response => {
           this.response = response;
-          this.getUltimosDosPartidos();
+          this.getPartidos();
           this.error = null;
         })
         .catch(error => {
@@ -408,7 +408,7 @@ export default {
         .then(response => {
           this.response = response;
           this.loading = false;
-          this.getUltimosDosPartidos();
+          this.getPartidos();
           this.error = null;
           this.$refs.modalAgregarEditarEliminarPartido.hide();
         })
@@ -424,7 +424,7 @@ export default {
           this.response = response;
           this.loading = false;
           this.error = null;
-          this.getUltimosDosPartidos();
+          this.getPartidos();
           this.$refs.modalAgregarEditarEliminarPartido.hide();
         })
         .catch(error => {

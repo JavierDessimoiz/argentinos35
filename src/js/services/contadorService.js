@@ -8,7 +8,12 @@ export const contadorService = {
     getContador$() {
         return AXIOS.get(`${URL_API}/contadores?apikey=${API_KEY}&q={}&max=1`);
     },
+    //updateContador$(id,contador){
+    //    return AXIOS.put(`${URL_API}/contadores/${id}?apikey=${API_KEY}`,contador);
+    //},
     updateContador$(id,contador){
-        return AXIOS.put(`${URL_API}/contadores/${id}?apikey=${API_KEY}`,contador);
-    },
+        console.log(id);
+        console.log(contador);
+        return null;
+    }
 }
