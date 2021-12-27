@@ -1,10 +1,9 @@
 <template>
-  <div class="container-fluid">
-    <br />
+  <div class="container-fluid">    
+    <br /> 
     <div v-if="loadingRefresh" class="spinner-border" role="status">
       <span class="sr-only"></span>
     </div>
-    
     <div v-else class="row">
       <div
         v-for="(partido, index) in partidos"

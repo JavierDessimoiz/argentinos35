@@ -1,12 +1,13 @@
 <template>
   <div class="container-fluid">
     <Header
+      class="header"
       v-bind:usuarioLogueado="this.usuarioLogueado"
       @logoutUsuario="logoutUsuario"
       @loginUsuario="loginUsuario"
     />
-    <Body v-bind:usuarioLogueado="this.usuarioLogueado" v-bind:usuario="this.usuario"/>
-    <Footer />
+    <Body class="body" v-bind:usuarioLogueado="this.usuarioLogueado" v-bind:usuario="this.usuario"/>
+    <Footer class="footer" />
     <!-- Modal Deslogueo -->
     <b-modal ref="modalLogout" title="Logout Admin." @ok="desloguear()" centered>
       <span>¿Está seguro que desea desloguearse?</span>
@@ -69,5 +70,17 @@ export default {
   padding: 0;
   margin-left: 0;
   margin-right: 0;
+}
+
+.header {
+  min-height: 10vh;
+}
+
+.body {
+  min-height: 65vh;
+}
+
+.footer {
+  min-height: 25vh;
 }
 </style>

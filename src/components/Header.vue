@@ -71,6 +71,16 @@
           </b-nav-item>
           <b-nav-item>
             <b-button
+              :to="{ path: '/Partidos' }"
+              pill
+              squared
+              variant="outline-light"
+              color="white"
+              size="sm"
+            >PARTIDOS</b-button>
+          </b-nav-item>
+          <b-nav-item>
+            <b-button
               :to="{ path: '/Resultados' }"
               pill
               squared
