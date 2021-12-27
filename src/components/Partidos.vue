@@ -54,7 +54,7 @@
             {{ partido['sede'][0].nombre }}
           </div>
           <div class="row">
-            <i class="fas fa-map-marker-alt mr-3 ml-2"></i>
+            <i class="fas fa-map-marker-alt mr-2 ml-2"></i>
             <u>Dirección</u>
             :
             {{ partido['sede'][0].direccion }}
@@ -78,23 +78,15 @@
             :
             {{ partido.hora }}
           </div>
-
-          <div class="row" v-if="partido.autoresGoles.length > 0">
-            <i class="fas fa-futbol fa-1x mr-2 ml-2"></i>
-            <u>Goles</u>
-            :
-            {{ partido.autoresGoles }}
-          </div>
-          <div v-else>
-            <br />
-          </div>
-          
+ 
           <div class="row">
             <i class="fas fa-futbol fa-1x mr-2 ml-2"></i>
             <u>Goles:</u>
             <ul class="list-group">
               <div class="list-unstyled" v-for="(gol, index) in partido.goles" v-bind:key="index">
-                <li class="list ml-2">{{ gol['minutos'] }} min. {{ gol['jugador'][0]['nombre'] }}</li>
+                <li class="list ml-2 text-left">
+                    - {{ index + 1}} {{ gol['jugador'][0]['nombre'] }}
+                  </li>
               </div>
             </ul>
           </div>
@@ -324,11 +316,6 @@ export default {
       partidoService.getUltimosDosPartido$(null).then(response => {
         this.loadingRefresh = false;
         this.partidos = response.data;
-        this.partidos.forEach(p =>
-          partidoService.getGolesPatido$(p._id).then(response => {
-            p.goles = response.data;
-          })
-        );
       });
     },
     muestraModalEliminarPartido(partido) {
