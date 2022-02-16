@@ -6,8 +6,6 @@ export const API_KEY = '6072fb5ff592f7113340ef20';
 export const jugadoresService = {
     // Retorna todos los jugadores;
     getJugadores$() {
-        //const query = `{"idcliente":${clienteId},"moneda":"${monedaId}"}`;
-        //return AXIOS.get(`${URL_API}/jugadores?apikey=${API_KEY}&q={}sort=ordenPos&dir=1`);
         return AXIOS.get(`${URL_API}/jugadores?apikey=${API_KEY}&q={}&sort=ordenPos&dir=1`);
     }
 }

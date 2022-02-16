@@ -36,6 +36,10 @@ export const partidoService = {
     getRivales$() {
         return AXIOS.get(`${URL_API}/rivales?apikey=${API_KEY}&h={"$orderby": {"nombre": 1}}`);
     },
+    //Torneos
+    getTorneos$() {
+        return AXIOS.get(`${URL_API}/torneos?apikey=${API_KEY}&h={"$orderby": {"año": -1}}`);
+    },
     // trae los partidos, parametros "torneo", "rival", "goleador"
     getPartidos$(torneo, rival, goleador) {
         let query="";
