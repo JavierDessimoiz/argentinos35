@@ -73,14 +73,14 @@ export default {
 }
 
 .header {
-  min-height: 10vh;
+  min-height: 7vh;
 }
 
 .body {
-  min-height: 70vh;
+  min-height: 76vh;
 }
 
 .footer {
-  min-height: 20vh;
+  min-height: 17vh;
 }
 </style>
