@@ -36,6 +36,7 @@
               variant= "light"
               squared
               size="lg"
+              onclick="window.scrollTo(0,0)"
             >Ver más...</b-button>
         </div>
 
