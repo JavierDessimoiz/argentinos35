@@ -25,6 +25,14 @@
           <p>{{ noticia.cuerpo }}</p>
         </div>
 
+        <div v-if= "noticia.foto != ''" class="row-title-center">
+          <b-img :src=noticia.foto fluid alt="Noticia"></b-img>
+        </div>
+        
+        <div v-if= "noticia.link != ''" class="row-title-center">
+          <h4><a title= "Mas info" rel="stylesheet" :href= noticia.link crossorigin="anonymous"> Ver más... </a></h4>
+        </div>
+
         <div class="row" v-if="usuarioLogueado == true">
           <div class="row mt-2 mb-2 ml-2">
             <b-button
@@ -193,6 +201,8 @@ export default {
       this.nuevaNoticia.cuerpo = null;
       this.nuevaNoticia._id = null;
       this.nuevaNoticia.usuario = null;
+      this.nuevaNoticia.foto = null;
+      this.nuevaNoticia.link = null;
     },
     muestraModalAgregarEditarNoticia(noticia) {
       if (noticia == null) {

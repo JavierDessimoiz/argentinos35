@@ -6,7 +6,7 @@ export const API_KEY = '6072fb5ff592f7113340ef20';
 export const RestService = {
     // Retorna videos para la seccion videos
     getGaleria$() {
-        return AXIOS.get(`${URL_API}/galeria-fotos?apikey=${API_KEY}`);
+        return AXIOS.get(`${URL_API}/galeria-fotos?apikey=${API_KEY}&sort=id&dir=-1`);
     },
     // Retorna fotos de presentacion
     getPresentacion$() {
