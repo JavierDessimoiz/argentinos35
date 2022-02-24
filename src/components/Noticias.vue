@@ -30,7 +30,13 @@
         </div>
         
         <div v-if= "noticia.link != ''" class="row-title-center">
-          <h4><a title= "Mas info" rel="stylesheet" :href= noticia.link crossorigin="anonymous"> Ver más... </a></h4>
+          <b-button
+              :to="{ path: '/Galeria' }"
+              pill
+              variant= "light"
+              squared
+              size="lg"
+            >Ver más...</b-button>
         </div>
 
         <div class="row" v-if="usuarioLogueado == true">
